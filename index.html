@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
@@ -195,171 +196,208 @@
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
-  <a href="#" class="logo"><div class="logo-icon">🌲</div>TreePro</a>
+  <a href="#" class="logo">
+    <div class="logo-icon">🌲</div>
+    TreePro
+  </a>
   <a href="#booking" class="nav-cta">Free Estimate →</a>
 </nav>
-<sec class="hero">
+
+<!-- HERO -->
+<section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="badge">🌿 Licensed &amp; Insured · Available 7 Days</div>
+      <div class="hero-badge">🌿 Licensed &amp; Insured · Serving the Area</div>
       <h1>Your Trees Deserve <em>Expert Care</em></h1>
-      <p>Professional tree removal, trimming, and emergency services. Safe, efficient, fully insured — and we leave your yard spotless.</p>
-      <div class="btns">
-        <a href="#booking" class="btn-p">🪓 Get a Free Estimate</a>
-        <a href="#services" class="btn-g">Our Services</a>
+      <p>Professional tree removal, trimming, and emergency services. Safe, efficient, and fully insured. We leave your property cleaner than we found it.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">🪓 Get a Free Estimate</a>
+        <a href="#services" class="btn-ghost">See Our Services</a>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="htree">🌳</div>
-      <div class="hct">Trusted Tree Professionals</div>
-      <div class="hcs">Available 7 days · Emergency 24/7</div>
-      <div class="stat-grid">
-        <div class="stat"><div class="sn">500+</div><div class="sl">Jobs Done</div></div>
-        <div class="stat"><div class="sn">4.9★</div><div class="sl">Avg Rating</div></div>
-        <div class="stat"><div class="sn">10+</div><div class="sl">Years Exp</div></div>
-        <div class="stat"><div class="sn">24/7</div><div class="sl">Emergency</div></div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-tree">🌳</div>
+        <div class="hero-card-title">Trusted Tree Professionals</div>
+        <div class="hero-card-sub">Available 7 days a week · Emergency 24/7</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-num">500+</div><div class="stat-label">Jobs Completed</div></div>
+          <div class="stat-box"><div class="stat-num">4.9★</div><div class="stat-label">Avg. Rating</div></div>
+          <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-box"><div class="stat-num">24/7</div><div class="stat-label">Emergency Service</div></div>
+        </div>
       </div>
     </div>
   </div>
-</sec>
-<sec id="services" style="background:#fff;">
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="container">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="stag">What We Do</div>
-      <h2>Complete Tree Care Services</h2>
-      <p class="sub" style="margin:0 auto;">From routine trimming to emergency storm damage — handled with professionalism and care.</p>
+    <div class="services-header">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Complete Tree Care Services</h2>
+      <p class="section-sub">From routine trimming to emergency storm damage — we handle it all with professionalism and care.</p>
     </div>
-    <div class="srv-grid">
-      <div class="scard"><div class="si">🪓</div><div class="sn2">Tree Removal</div><div class="sd">Safe removal of any size tree, permits to cleanup included.</div><div class="sp">Starting at $300 · Free estimate</div></div>
-      <div class="scard"><div class="si">✂️</div><div class="sn2">Trimming &amp; Pruning</div><div class="sd">Shape and maintain for health, beauty, and safety.</div><div class="sp">Starting at $150 per tree</div></div>
-      <div class="scard"><div class="si">🪨</div><div class="sn2">Stump Grinding</div><div class="sd">Complete stump removal — clean, fast, no mess.</div><div class="sp">Starting at $100 per stump</div></div>
-      <div class="scard" style="border-color:#fca5a5;background:#fff7f7;"><div class="si">🚨</div><div class="sn2">Emergency Service</div><div class="sd">Storm damage? Fallen tree? We respond fast, any hour.</div><div class="sp" style="color:#dc2626;">24/7 Emergency Response</div></div>
-      <div class="scard"><div class="si">🌿</div><div class="sn2">Lot Clearing</div><div class="sd">Land prep for construction or landscaping, full debris removal.</div><div class="sp">Custom quote · Free site visit</div></div>
-      <div class="scard" style="border-color:var(--green);background:var(--gp);"><div class="si">🔍</div><div class="sn2">Free Health Assessment</div><div class="sd">Certified arborist evaluation — free with any booked service.</div><div class="sp" style="color:var(--green);">FREE with any booking</div></div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🪓</div><div class="service-name">Tree Removal</div><div class="service-desc">Safe and efficient removal of any size tree. We handle everything from permits to complete cleanup.</div><div class="service-price">Starting at $300 · Free estimate</div></div>
+      <div class="service-card"><div class="service-icon">✂️</div><div class="service-name">Trimming &amp; Pruning</div><div class="service-desc">Shape and maintain your trees for health, beauty, and safety. Proper pruning extends tree life significantly.</div><div class="service-price">Starting at $150 per tree</div></div>
+      <div class="service-card"><div class="service-icon">🪨</div><div class="service-name">Stump Grinding</div><div class="service-desc">Remove unsightly stumps completely with our professional grinding equipment. Clean, fast, no mess.</div><div class="service-price">Starting at $100 per stump</div></div>
+      <div class="service-card" style="border-color:#fca5a5;background:#fff7f7;"><div class="service-icon">🚨</div><div class="service-name">Emergency Service</div><div class="service-desc">Fallen tree blocking your driveway or damaging your property? We respond fast, 24 hours a day, 7 days a week.</div><div class="service-price" style="color:#dc2626;">24/7 Emergency Response Available</div></div>
+      <div class="service-card"><div class="service-icon">🌿</div><div class="service-name">Lot Clearing</div><div class="service-desc">Preparing land for construction or landscaping? Our team clears acreage efficiently with complete debris removal.</div><div class="service-price">Custom quote · Free site visit</div></div>
+      <div class="service-card" style="border-color:var(--green);background:var(--green-pale);"><div class="service-icon">🔍</div><div class="service-name">Free Tree Health Assessment</div><div class="service-desc">Our certified arborists will assess and advise — completely free with any service booking.</div><div class="service-price" style="color:var(--green);">FREE with any booked service</div></div>
     </div>
   </div>
-</sec>
-<sec id="about" style="background:var(--warm);">
+</section>
+
+<!-- WHY US -->
+<section class="why" id="about">
   <div class="container">
     <div class="why-inner">
       <div>
-        <div class="stag">Why TreePro</div>
-        <h2>The Team That Shows Up — and Cleans Up</h2>
-        <p class="sub">Family-owned, over a decade of experience. We treat your property like our own.</p>
+        <div class="section-tag">Why TreePro</div>
+        <h2 class="section-title">The Team That Shows Up — and Cleans Up</h2>
+        <p class="section-sub">We're a family-owned business with over a decade of experience. We treat your property like our own.</p>
         <div class="badges">
-          <div class="bi"><div class="bc">✓</div><div class="bt">Licensed &amp; Fully Insured</div></div>
-          <div class="bi"><div class="bc">✓</div><div class="bt">Free Estimates Always</div></div>
-          <div class="bi"><div class="bc">✓</div><div class="bt">Same-Day Emergency</div></div>
-          <div class="bi"><div class="bc">✓</div><div class="bt">Family Owned</div></div>
-          <div class="bi"><div class="bc">✓</div><div class="bt">Complete Yard Cleanup</div></div>
-          <div class="bi"><div class="bc">✓</div><div class="bt">Satisfaction Guaranteed</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Licensed &amp; Fully Insured</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Free Estimates Always</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Same-Day Emergency</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Family Owned &amp; Operated</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Complete Yard Cleanup</div></div>
+          <div class="badge-item"><div class="badge-check">✓</div><div class="badge-text">Satisfaction Guaranteed</div></div>
         </div>
       </div>
-      <div>
-        <div class="big-stat"><div class="bn">500+</div><div class="bl">Successful jobs completed in the area</div></div>
-        <div class="minis">
-          <div class="mini"><div class="mn">4.9★</div><div class="ml">Avg customer rating</div></div>
-          <div class="mini"><div class="mn">10+</div><div class="ml">Years experience</div></div>
-          <div class="mini"><div class="mn">24/7</div><div class="ml">Emergency available</div></div>
-          <div class="mini"><div class="mn">$0</div><div class="ml">Cost of your estimate</div></div>
+      <div class="why-visual">
+        <div class="why-big-stat"><div class="why-big-num">500+</div><div class="why-big-label">Successful jobs completed in the area</div></div>
+        <div class="why-mini-cards">
+          <div class="why-mini"><div class="why-mini-num">4.9★</div><div class="why-mini-label">Average rating</div></div>
+          <div class="why-mini"><div class="why-mini-num">10+</div><div class="why-mini-label">Years experience</div></div>
+          <div class="why-mini"><div class="why-mini-num">24/7</div><div class="why-mini-label">Emergency available</div></div>
+          <div class="why-mini"><div class="why-mini-num">$0</div><div class="why-mini-label">Cost for estimate</div></div>
         </div>
       </div>
     </div>
   </div>
-</sec>
-<sec style="background:#fff;">
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
   <div class="container">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="stag">Simple Process</div>
-      <h2>From Request to Done — Fast</h2>
+    <div class="how-header">
+      <div class="section-tag">Simple Process</div>
+      <h2 class="section-title">From Request to Done — Fast</h2>
+      <p class="section-sub" style="margin:0 auto;">Three steps and we handle the rest.</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-n">1</div><div class="step-t">Request a Free Quote</div><div class="step-d">Fill out our form or chat with our AI concierge about your trees and timing.</div></div>
-      <div class="step"><div class="step-n">2</div><div class="step-t">We Confirm Your Visit</div><div class="step-d">Our team calls within 2 hours to confirm your appointment and exact quote.</div></div>
-      <div class="step"><div class="step-n">3</div><div class="step-t">Job Done Right</div><div class="step-d">We arrive on time, work safely, and leave your property spotless.</div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-title">Request a Free Quote</div><div class="step-desc">Fill out our form or chat with our AI concierge about your trees and timing.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title">We Confirm Your Visit</div><div class="step-desc">Our team calls within 2 hours to confirm your appointment and provide an exact quote.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Job Done Right</div><div class="step-desc">We arrive on time, work safely, and leave your property spotless. You sign off when satisfied.</div></div>
     </div>
   </div>
-</sec>
-<sec class="testi">
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
   <div class="container">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="stag">Reviews</div>
-      <h2>What Our Customers Say</h2>
+    <div class="testimonials-header">
+      <div class="section-tag">Reviews</div>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-sub" style="margin:0 auto;color:#86efac;">Real results from real neighbors.</p>
     </div>
     <div class="reviews">
-      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"TreePro removed a massive oak near our house. Professional, fast, and the cleanup was immaculate. Highly recommend!"</div><div class="rv"><div class="av">SM</div><div class="ri"><strong>Sarah M.</strong><span>Tree removal · Verified</span></div></div></div>
-      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"Called Sunday after storm damage. They arrived within 3 hours. Emergency service is no joke — these guys are the real deal."</div><div class="rv"><div class="av">JK</div><div class="ri"><strong>James K.</strong><span>Emergency service · Verified</span></div></div></div>
-      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"Cleared 20+ trees in two days and left the land completely clean. Fair price, great crew. Will use again for sure."</div><div class="rv"><div class="av">LT</div><div class="ri"><strong>Linda T.</strong><span>Lot clearing · Verified</span></div></div></div>
+      <div class="review"><div class="stars">★★★★★</div><div class="review-text">"TreePro removed a massive oak near our house. Professional, fast, and cleanup was immaculate. Highly recommend!"</div><div class="reviewer"><div class="avatar">SM</div><div class="reviewer-info"><strong>Sarah M.</strong><span>Tree removal · Verified customer</span></div></div></div>
+      <div class="review"><div class="stars">★★★★★</div><div class="review-text">"Called Sunday after storm damage. They arrived within 3 hours. Emergency service is no joke — these guys are the real deal."</div><div class="reviewer"><div class="avatar">JK</div><div class="reviewer-info"><strong>James K.</strong><span>Emergency service · Verified customer</span></div></div></div>
+      <div class="review"><div class="stars">★★★★★</div><div class="review-text">"Cleared 20+ trees in two days, left the land totally clean. Fair price and great crew. Will use again."</div><div class="reviewer"><div class="avatar">LT</div><div class="reviewer-info"><strong>Linda T.</strong><span>Lot clearing · Verified customer</span></div></div></div>
     </div>
   </div>
-</sec>
-<sec id="booking">
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
   <div class="container">
-    <div class="book-inner">
-      <div style="position:sticky;top:6rem;">
-        <div class="stag">Get Started</div>
-        <h2>Book Your Free Estimate</h2>
-        <p class="sub">No commitment, no pressure. Expert quote within 24 hours.</p>
-        <div class="perks">
-          <div class="perk">🟢 100% free, no obligation</div>
-          <div class="perk">📞 We call within 2 hours</div>
-          <div class="perk">📅 Mon–Sat, 7am–6pm</div>
-          <div class="perk">⚡ Same-day emergency available</div>
-          <div class="perk">💬 Or chat with our AI concierge!</div>
+    <div class="booking-inner">
+      <div class="booking-info">
+        <div class="section-tag">Get Started</div>
+        <h2 class="section-title">Book Your Free Estimate</h2>
+        <p class="section-sub">No commitment, no pressure. Expert quote within 24 hours.</p>
+        <div class="booking-perks">
+          <div class="perk"><span class="perk-icon">🟢</span> 100% free, no obligation estimate</div>
+          <div class="perk"><span class="perk-icon">📞</span> We'll call you within 2 hours</div>
+          <div class="perk"><span class="perk-icon">📅</span> Available Mon–Sat, 7am–6pm</div>
+          <div class="perk"><span class="perk-icon">⚡</span> Emergency same-day service available</div>
+          <div class="perk"><span class="perk-icon">💬</span> Or chat with our AI concierge!</div>
         </div>
       </div>
-      <div class="fcard">
-        <div id="fc">
-          <div class="ft">Request Your Estimate</div>
-          <div class="fs">Fill out the form and we'll be in touch. 🌲</div>
-          <form id="bf">
-            <div class="frow">
-              <div class="field"><label>Full Name *</label><input type="text" id="fn" placeholder="John Smith" required></div>
-              <div class="field"><label>Phone *</label><input type="tel" id="fp" placeholder="(555) 000-0000" required></div>
+      <div class="form-card">
+        <div id="form-container">
+          <div class="form-title">Request Your Estimate</div>
+          <div class="form-sub">Fill out the form and we'll be in touch. 🌲</div>
+          <form id="booking-form">
+            <div class="form-row">
+              <div class="field"><label>Full Name *</label><input type="text" id="fname" placeholder="John Smith" required></div>
+              <div class="field"><label>Phone Number *</label><input type="tel" id="fphone" placeholder="(555) 000-0000" required></div>
             </div>
-            <div class="field"><label>Email *</label><input type="email" id="fe" placeholder="john@email.com" required></div>
-            <div class="frow">
-              <div class="field"><label>Service *</label><select id="fsv" required><option value="">Select…</option><option>Tree Removal</option><option>Tree Trimming &amp; Pruning</option><option>Stump Grinding</option><option>Emergency Service</option><option>Lot Clearing</option><option>Health Assessment</option><option>Other</option></select></div>
-              <div class="field"><label>Preferred Date</label><input type="date" id="fd"></div>
+            <div class="field"><label>Email Address *</label><input type="email" id="femail" placeholder="john@email.com" required></div>
+            <div class="form-row">
+              <div class="field"><label>Service Needed *</label><select id="fservice" required><option value="">Select a service…</option><option>Tree Removal</option><option>Tree Trimming &amp; Pruning</option><option>Stump Grinding</option><option>Emergency Service</option><option>Lot Clearing</option><option>Tree Health Assessment</option><option>Other</option></select></div>
+              <div class="field"><label>Preferred Date</label><input type="date" id="fdate"></div>
             </div>
-            <div class="field"><label>Tell Us About Your Trees</label><textarea id="fm" placeholder="How many? Approx size? Any concerns?"></textarea></div>
-            <button type="submit" class="sbtn" id="sb">🪓 Request My Free Estimate</button>
+            <div class="field"><label>Tell Us About Your Trees</label><textarea id="fmessage" placeholder="How many trees? Approx. size? Any special concerns?"></textarea></div>
+            <button type="submit" class="submit-btn" id="submit-btn">🪓 Request My Free Estimate</button>
           </form>
         </div>
-        <div class="succ" id="succ">
-          <div class="succ-icon">🌲</div>
+        <div class="success-msg" id="success-msg">
+          <div class="success-icon">🌲</div>
           <h3>Request Received!</h3>
-          <p>Our team will call within 2 hours. Check your email for a confirmation.</p>
+          <p>Our team will call you within 2 hours to confirm your estimate. Check your email for a confirmation.</p>
         </div>
       </div>
     </div>
   </div>
-</sec>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="logo" style="justify-content:center;color:#fff;margin-bottom:1rem;"><div class="logo-icon">🌲</div>TreePro</div>
-    <p style="color:#d6d3d1;font-size:.95rem;margin-bottom:.5rem;">Expert Tree Services — Licensed, Insured &amp; Family Owned</p>
+    <a href="#" class="logo" style="justify-content:center;margin-bottom:1rem;">
+      <div class="logo-icon">🌲</div>TreePro
+    </a>
+    <p style="color:#d6d3d1;font-size:0.95rem;margin-bottom:0.5rem;">Expert Tree Services — Licensed, Insured &amp; Family Owned</p>
     <p>📞 <a href="tel:5553877776">(555) TREE-PRO</a> · ✉️ <a href="mailto:hello@treepro.com">hello@treepro.com</a></p>
-    <div class="flinks"><a href="#services">Services</a><a href="#about">About</a><a href="#booking">Book Now</a></div>
-    <p style="font-size:.78rem;margin-top:1rem;">© 2026 TreePro. All rights reserved.</p>
+    <div class="footer-links"><a href="#services">Services</a><a href="#about">About</a><a href="#booking">Book Now</a></div>
+    <p style="font-size:0.78rem;margin-top:1rem;">© 2026 TreePro. All rights reserved. · Powered by AI Automation</p>
   </div>
 </footer>
+
 <script>
-document.getElementById('bf').addEventListener('submit',async function(e){
+document.getElementById('booking-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  var b=document.getElementById('sb');
-  b.disabled=true;b.textContent='Sending…';
-  try{
-    await fetch('https://paymegpt.com/api/webhooks/flow/2510/f306e0894beb5d05f0afb921837ec6e82473d7e63c6511b3926a995480c5f012',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contactName:document.getElementById('fn').value,contactEmail:document.getElementById('fe').value,contactPhone:document.getElementById('fp').value,data:{service:document.getElementById('fsv').value,preferredDate:document.getElementById('fd').value,message:document.getElementById('fm').value}})
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Sending your request…';
+  const payload = {
+    contactName: document.getElementById('fname').value,
+    contactEmail: document.getElementById('femail').value,
+    contactPhone: document.getElementById('fphone').value,
+    data: {
+      service: document.getElementById('fservice').value,
+      preferredDate: document.getElementById('fdate').value,
+      message: document.getElementById('fmessage').value
+    }
+  };
+  try {
+    await fetch('https://paymegpt.com/api/webhooks/flow/2510/f306e0894beb5d05f0afb921837ec6e82473d7e63c6511b3926a995480c5f012', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
     });
-  }catch(e){console.log(e);}
-  document.getElementById('fc').style.display='none';
-  document.getElementById('succ').style.display='block';
+  } catch(err) { console.log(err); }
+  document.getElementById('form-container').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
 });
 </script>
+
 <script src="https://paymegpt.com/widget.js" data-widget="33911175" async></script>
 </body>
 </html>
