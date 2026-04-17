@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+<!-- SEO Meta Tags -->
+<title>TreePro — Expert Tree Services</title>
+<meta property="og:title" content="TreePro — Expert Tree Services" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="TreePro — Expert Tree Services" />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=3328');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='MKkrh8N3U';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <a href="#" class="logo"><div class="logo-icon">🌲</div>TreePro</a>
+  <a href="#booking" class="nav-cta">Free Estimate →</a>
+</nav>
+<sec class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="badge">🌿 Licensed &amp; Insured · Available 7 Days</div>
+      <h1>Your Trees Deserve <em>Expert Care</em></h1>
+      <p>Professional tree removal, trimming, and emergency services. Safe, efficient, fully insured — and we leave your yard spotless.</p>
+      <div class="btns">
+        <a href="#booking" class="btn-p">🪓 Get a Free Estimate</a>
+        <a href="#services" class="btn-g">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="htree">🌳</div>
+      <div class="hct">Trusted Tree Professionals</div>
+      <div class="hcs">Available 7 days · Emergency 24/7</div>
+      <div class="stat-grid">
+        <div class="stat"><div class="sn">500+</div><div class="sl">Jobs Done</div></div>
+        <div class="stat"><div class="sn">4.9★</div><div class="sl">Avg Rating</div></div>
+        <div class="stat"><div class="sn">10+</div><div class="sl">Years Exp</div></div>
+        <div class="stat"><div class="sn">24/7</div><div class="sl">Emergency</div></div>
+      </div>
+    </div>
+  </div>
+</sec>
+<sec id="services" style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="stag">What We Do</div>
+      <h2>Complete Tree Care Services</h2>
+      <p class="sub" style="margin:0 auto;">From routine trimming to emergency storm damage — handled with professionalism and care.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="scard"><div class="si">🪓</div><div class="sn2">Tree Removal</div><div class="sd">Safe removal of any size tree, permits to cleanup included.</div><div class="sp">Starting at $300 · Free estimate</div></div>
+      <div class="scard"><div class="si">✂️</div><div class="sn2">Trimming &amp; Pruning</div><div class="sd">Shape and maintain for health, beauty, and safety.</div><div class="sp">Starting at $150 per tree</div></div>
+      <div class="scard"><div class="si">🪨</div><div class="sn2">Stump Grinding</div><div class="sd">Complete stump removal — clean, fast, no mess.</div><div class="sp">Starting at $100 per stump</div></div>
+      <div class="scard" style="border-color:#fca5a5;background:#fff7f7;"><div class="si">🚨</div><div class="sn2">Emergency Service</div><div class="sd">Storm damage? Fallen tree? We respond fast, any hour.</div><div class="sp" style="color:#dc2626;">24/7 Emergency Response</div></div>
+      <div class="scard"><div class="si">🌿</div><div class="sn2">Lot Clearing</div><div class="sd">Land prep for construction or landscaping, full debris removal.</div><div class="sp">Custom quote · Free site visit</div></div>
+      <div class="scard" style="border-color:var(--green);background:var(--gp);"><div class="si">🔍</div><div class="sn2">Free Health Assessment</div><div class="sd">Certified arborist evaluation — free with any booked service.</div><div class="sp" style="color:var(--green);">FREE with any booking</div></div>
+    </div>
+  </div>
+</sec>
+<sec id="about" style="background:var(--warm);">
+  <div class="container">
+    <div class="why-inner">
+      <div>
+        <div class="stag">Why TreePro</div>
+        <h2>The Team That Shows Up — and Cleans Up</h2>
+        <p class="sub">Family-owned, over a decade of experience. We treat your property like our own.</p>
+        <div class="badges">
+          <div class="bi"><div class="bc">✓</div><div class="bt">Licensed &amp; Fully Insured</div></div>
+          <div class="bi"><div class="bc">✓</div><div class="bt">Free Estimates Always</div></div>
+          <div class="bi"><div class="bc">✓</div><div class="bt">Same-Day Emergency</div></div>
+          <div class="bi"><div class="bc">✓</div><div class="bt">Family Owned</div></div>
+          <div class="bi"><div class="bc">✓</div><div class="bt">Complete Yard Cleanup</div></div>
+          <div class="bi"><div class="bc">✓</div><div class="bt">Satisfaction Guaranteed</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="big-stat"><div class="bn">500+</div><div class="bl">Successful jobs completed in the area</div></div>
+        <div class="minis">
+          <div class="mini"><div class="mn">4.9★</div><div class="ml">Avg customer rating</div></div>
+          <div class="mini"><div class="mn">10+</div><div class="ml">Years experience</div></div>
+          <div class="mini"><div class="mn">24/7</div><div class="ml">Emergency available</div></div>
+          <div class="mini"><div class="mn">$0</div><div class="ml">Cost of your estimate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</sec>
+<sec style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="stag">Simple Process</div>
+      <h2>From Request to Done — Fast</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t">Request a Free Quote</div><div class="step-d">Fill out our form or chat with our AI concierge about your trees and timing.</div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t">We Confirm Your Visit</div><div class="step-d">Our team calls within 2 hours to confirm your appointment and exact quote.</div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t">Job Done Right</div><div class="step-d">We arrive on time, work safely, and leave your property spotless.</div></div>
+    </div>
+  </div>
+</sec>
+<sec class="testi">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="stag">Reviews</div>
+      <h2>What Our Customers Say</h2>
+    </div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"TreePro removed a massive oak near our house. Professional, fast, and the cleanup was immaculate. Highly recommend!"</div><div class="rv"><div class="av">SM</div><div class="ri"><strong>Sarah M.</strong><span>Tree removal · Verified</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"Called Sunday after storm damage. They arrived within 3 hours. Emergency service is no joke — these guys are the real deal."</div><div class="rv"><div class="av">JK</div><div class="ri"><strong>James K.</strong><span>Emergency service · Verified</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><div class="rt">"Cleared 20+ trees in two days and left the land completely clean. Fair price, great crew. Will use again for sure."</div><div class="rv"><div class="av">LT</div><div class="ri"><strong>Linda T.</strong><span>Lot clearing · Verified</span></div></div></div>
+    </div>
+  </div>
+</sec>
+<sec id="booking">
+  <div class="container">
+    <div class="book-inner">
+      <div style="position:sticky;top:6rem;">
+        <div class="stag">Get Started</div>
+        <h2>Book Your Free Estimate</h2>
+        <p class="sub">No commitment, no pressure. Expert quote within 24 hours.</p>
+        <div class="perks">
+          <div class="perk">🟢 100% free, no obligation</div>
+          <div class="perk">📞 We call within 2 hours</div>
+          <div class="perk">📅 Mon–Sat, 7am–6pm</div>
+          <div class="perk">⚡ Same-day emergency available</div>
+          <div class="perk">💬 Or chat with our AI concierge!</div>
+        </div>
+      </div>
+      <div class="fcard">
+        <div id="fc">
+          <div class="ft">Request Your Estimate</div>
+          <div class="fs">Fill out the form and we'll be in touch. 🌲</div>
+          <form id="bf">
+            <div class="frow">
+              <div class="field"><label>Full Name *</label><input type="text" id="fn" placeholder="John Smith" required></div>
+              <div class="field"><label>Phone *</label><input type="tel" id="fp" placeholder="(555) 000-0000" required></div>
+            </div>
+            <div class="field"><label>Email *</label><input type="email" id="fe" placeholder="john@email.com" required></div>
+            <div class="frow">
+              <div class="field"><label>Service *</label><select id="fsv" required><option value="">Select…</option><option>Tree Removal</option><option>Tree Trimming &amp; Pruning</option><option>Stump Grinding</option><option>Emergency Service</option><option>Lot Clearing</option><option>Health Assessment</option><option>Other</option></select></div>
+              <div class="field"><label>Preferred Date</label><input type="date" id="fd"></div>
+            </div>
+            <div class="field"><label>Tell Us About Your Trees</label><textarea id="fm" placeholder="How many? Approx size? Any concerns?"></textarea></div>
+            <button type="submit" class="sbtn" id="sb">🪓 Request My Free Estimate</button>
+          </form>
+        </div>
+        <div class="succ" id="succ">
+          <div class="succ-icon">🌲</div>
+          <h3>Request Received!</h3>
+          <p>Our team will call within 2 hours. Check your email for a confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</sec>
+<footer>
+  <div class="container">
+    <div class="logo" style="justify-content:center;color:#fff;margin-bottom:1rem;"><div class="logo-icon">🌲</div>TreePro</div>
+    <p style="color:#d6d3d1;font-size:.95rem;margin-bottom:.5rem;">Expert Tree Services — Licensed, Insured &amp; Family Owned</p>
+    <p>📞 <a href="tel:5553877776">(555) TREE-PRO</a> · ✉️ <a href="mailto:hello@treepro.com">hello@treepro.com</a></p>
+    <div class="flinks"><a href="#services">Services</a><a href="#about">About</a><a href="#booking">Book Now</a></div>
+    <p style="font-size:.78rem;margin-top:1rem;">© 2026 TreePro. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById('bf').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var b=document.getElementById('sb');
+  b.disabled=true;b.textContent='Sending…';
+  try{
+    await fetch('https://paymegpt.com/api/webhooks/flow/2510/f306e0894beb5d05f0afb921837ec6e82473d7e63c6511b3926a995480c5f012',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contactName:document.getElementById('fn').value,contactEmail:document.getElementById('fe').value,contactPhone:document.getElementById('fp').value,data:{service:document.getElementById('fsv').value,preferredDate:document.getElementById('fd').value,message:document.getElementById('fm').value}})
+    });
+  }catch(e){console.log(e);}
+  document.getElementById('fc').style.display='none';
+  document.getElementById('succ').style.display='block';
+});
+</script>
+<script src="https://paymegpt.com/widget.js" data-widget="33911175" async></script>
+</body>
+</html>
